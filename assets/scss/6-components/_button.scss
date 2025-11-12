@@ -1,0 +1,42 @@
+@use '../1-settings' as settings;
+@use '../2-tools' as *;
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 0.375rem;
+  background-color: settings.$color-bg-button;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease, transform 0.1s ease;
+
+  &:hover {
+    background-color: color-mix(in srgb, settings.$color-bg-button 88%, white);
+  }
+
+  &:active {
+    background-color: color-mix(in srgb, settings.$color-bg-button 88%, white);
+    transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    @include focus-ring();
+  }
+
+  &--secondary {
+    color: settings.$color-bg-button;
+    background-color: transparent;
+    transition: color 0.2s ease;
+    border: 1px solid settings.$color-bg-button;
+
+    &:hover {
+      color: #fff;
+      background-color: color-mix(in srgb, settings.$color-bg-button 88%, white);
+    }
+  }
+}

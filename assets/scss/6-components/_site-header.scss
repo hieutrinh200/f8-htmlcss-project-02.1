@@ -1,0 +1,198 @@
+@use 'sass:map';
+@use '../1-settings/' as settings;
+@use '../2-tools/' as tools;
+
+.site-header {
+  padding-block-start: 3.25rem;
+  padding-block-end: 1rem;
+  background-color: #fff;
+  z-index: map.get(settings.$z-index, sticky);
+
+  &--sticky {
+    position: sticky;
+    top: -2.25rem;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__nav {
+    &-list {
+      display: flex;
+      align-items: center;
+      gap: 2.44rem;
+      list-style-type: none;
+    }
+
+    &-link {
+      display: inline-block;
+      color: #2f3a3b;
+      font-size: 1rem;
+      font-weight: 400;
+      text-decoration: none;
+
+      &--active {
+        font-weight: 600;
+      }
+
+      &:not(&--active):hover {
+        text-shadow: 0 0 1px #2f3a3b;
+      }
+    }
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    &-link {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #494949;
+      text-align: center;
+      text-decoration: none;
+
+      &:hover {
+        text-shadow: 0 0 1px #2f3a3b;
+      }
+    }
+
+    &-cta {
+      padding-block: 0.75rem;
+      padding-inline: 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+
+  &__toggle {
+    display: none;
+    position: absolute;
+    inset-inline-end: 0;
+    margin-inline-end: 1rem;
+    inline-size: 2rem;
+    block-size: 2rem;
+    color: settings.$color-bg-button;
+    cursor: pointer;
+
+    svg {
+      inline-size: 100%;
+      block-size: 100%;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: map.get(settings.$z-index, overlay);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  &__drawer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset-block: 0;
+    inset-inline: auto 0;
+    z-index: map.get(settings.$z-index, modal);
+    inline-size: 20rem;
+    max-inline-size: 80%;
+    padding-block: 1rem;
+    background: settings.$color-bg-primary;
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+
+    .site-header__nav {
+      &-list {
+        flex-direction: column;
+      }
+
+      &-item {
+        inline-size: 100%;
+      }
+
+      &-link {
+        font-size: 1rem;
+      }
+
+      &-actions {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        inline-size: 100%;
+        margin-block: auto 0;
+        gap: 0.5rem;
+      }
+
+      &-btn {
+        inline-size: 60%;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__checkbox:checked ~ &__overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__checkbox:checked ~ &__drawer {
+    transform: translateX(0);
+  }
+
+  @media (max-width: 960px) {
+    &__nav {
+      display: none;
+    }
+    &__action {
+      display: none;
+    }
+    &__toggle {
+      display: block;
+    }
+  }
+
+  @include tools.respond-max(tablet) {
+    padding-block: 1rem;
+
+    &__inner {
+      justify-content: space-between;
+    }
+
+    &__drawer {
+      inline-size: 22rem;
+      max-inline-size: 85%;
+    }
+
+    &--sticky {
+      top: 0;
+    }
+  }
+
+  @include tools.respond-max(mobile) {
+    &__drawer {
+      inline-size: 18rem;
+      max-inline-size: 90%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__overlay,
+    &__drawer {
+      transition: none;
+    }
+  }
+}

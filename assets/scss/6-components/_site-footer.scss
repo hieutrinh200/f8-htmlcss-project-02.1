@@ -1,0 +1,73 @@
+@use '../1-settings/' as settings;
+@use '../2-tools/' as tools;
+
+.site-footer {
+  padding-block-start: 8.19rem;
+  padding-block-end: 3.13rem;
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 9rem;
+  }
+
+  &__list {
+    margin-block-start: 1.62rem;
+    padding-inline-start: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.12rem;
+  }
+
+  &__title {
+    color: #2e2e2e;
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+
+  &__link {
+    color: #535353;
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    display: flex;
+    gap: 0.56rem;
+  }
+  &__wrapper {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  &__copyright {
+    margin-block-start: 5rem;
+    text-align: center;
+    color: #b0b5b4;
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin-inline: auto;
+  }
+
+  @include tools.respond-max(desktop) {
+    &__row {
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+  }
+
+  @include tools.respond-max(mobile) {
+    &__row {
+      display: grid;
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 3rem;
+    }
+
+    &__list {
+      align-items: center;
+    }
+
+    .logo {
+      margin-inline: auto;
+    }
+  }
+}

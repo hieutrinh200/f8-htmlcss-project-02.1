@@ -1,0 +1,40 @@
+@use '../1-settings/' as settings;
+@use '../2-tools/' as tools;
+
+.cta {
+  background-color: #def6f5;
+  padding-block-start: 4.75rem;
+  padding-block-end: 5.5rem;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    color: #070707;
+    font-size: 2.625rem;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    margin-block-start: 1.12rem;
+    color: #767e7e;
+    font-size: 1.125rem;
+    font-weight: 400;
+  }
+
+  &__button {
+    padding-block: 1.25rem;
+    padding-inline: 2.56rem;
+    border-radius: 0.875rem;
+  }
+
+  @include tools.respond-max(mobile) {
+    &__inner {
+      flex-direction: column;
+      gap: 3rem;
+    }
+  }
+}

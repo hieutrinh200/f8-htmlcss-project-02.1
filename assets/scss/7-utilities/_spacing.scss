@@ -1,0 +1,9 @@
+@use '../1-settings' as settings;
+@each $k, $v in settings.$spacings {
+  .m-#{$k} {
+    margin: $v !important;
+  }
+  .p-#{$k} {
+    padding: $v !important;
+  }
+}

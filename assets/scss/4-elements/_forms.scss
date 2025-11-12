@@ -1,0 +1,40 @@
+input,
+textarea,
+select {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font: inherit;
+  line-height: 1.5;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+// Focus state
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 30%, transparent);
+  outline: 2px solid transparent; // giúp hỗ trợ high contrast mode
+  outline-offset: 2px;
+}
+
+// Disabled state
+input:disabled,
+textarea:disabled,
+select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--color-surface-variant, #f5f5f5);
+}
+
+// Placeholder — chuẩn readability
+::placeholder {
+  color: var(--color-on-surface-variant, #9ca3af);
+  opacity: 1; // tránh opacity mặc định khác nhau giữa trình duyệt
+}

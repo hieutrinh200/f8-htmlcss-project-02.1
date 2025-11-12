@@ -1,0 +1,47 @@
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-on-surface);
+  text-wrap: balance;
+  // margin-block: 0.5em;
+}
+
+// Font-size base tương đương scale Tailwind (text-5xl → text-xl)
+h1 {
+  font-size: clamp(2rem, 4vw + 1rem, 2.5rem); // 32–40px
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw + 0.5rem, 2rem); // 28–32px
+}
+
+h3 {
+  font-size: clamp(1.5rem, 2.5vw + 0.25rem, 1.75rem); // 24–28px
+}
+
+h4 {
+  font-size: 1.25rem; // 20px
+}
+
+h5 {
+  font-size: 1.125rem; // 18px
+}
+
+h6 {
+  font-size: 1rem; // 16px
+}
+
+// Paragraphs
+p {
+  // margin-block: 1em;
+  color: var(--color-on-surface-variant, var(--color-on-surface));
+  line-height: 1.6;
+  max-width: 65ch; // khuyến nghị Google Web Dev: tối ưu độ dài dòng
+  text-wrap: pretty; // giúp phân bố từ tự nhiên hơn
+}

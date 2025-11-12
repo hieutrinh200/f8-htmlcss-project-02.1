@@ -1,0 +1,119 @@
+@use 'sass:map';
+@use '../1-settings/' as settings;
+@use '../2-tools/' as tools;
+
+.hero {
+  padding-block-start: 2.12rem;
+  padding-block-end: 4.94rem;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__tagline {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: settings.$color-text-secondary;
+  }
+
+  &__title {
+    margin-block-start: 1.13rem;
+    font-size: 3.875rem;
+    font-weight: 700;
+    line-height: 1.16129;
+    color: settings.$color-text-primary;
+  }
+
+  &__description {
+    max-width: 23.375rem;
+    margin-block-start: 2.87rem;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.77778;
+    color: settings.$color-text-tertiary;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 3.13rem;
+    margin-block-start: 3.25rem;
+  }
+
+  &__cta-button {
+    padding-block: 1.25rem;
+    padding-inline: 2.56rem;
+    border-radius: 0.875rem;
+  }
+
+  &__play-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.875rem;
+    height: 3.875rem;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 22px 50px 0 rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.1s ease, transform 0.1s ease;
+
+    &:hover {
+      box-shadow: 0 22px 50px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  &__media {
+    position: relative;
+  }
+
+  &__thumbnail {
+    width: 36rem;
+    height: 39.4375rem;
+    object-fit: cover;
+    background-color: #e0f7f6;
+  }
+
+  @include tools.respond-max(laptop) {
+    padding-block-end: 0;
+
+    &__thumbnail {
+      display: none;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
+
+.info-card {
+  position: absolute;
+
+  &--courses {
+    top: 4.31rem;
+    left: -7.5rem;
+  }
+
+  &--schedules {
+    bottom: -2.13rem;
+    left: -9.06rem;
+  }
+
+  &--students {
+    right: -2.19rem;
+    bottom: -2.44rem;
+  }
+
+  @include tools.respond-max(laptop) {
+    display: none;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "f8-htmlcss-project-02.1",
+  "version": "1.0.0",
+  "description": "HTML & CSS project using Sass for styling",
+  "main": "index.js",
+  "scripts": {
+    "sass:dev": "sass --watch assets/scss:assets/css --style=expanded --source-map",
+    "sass:build": "sass assets/scss:assets/css --style=compressed --no-source-map --no-error-css --no-charset",
+    "start": "npm run sass:dev",
+    "build": "npm run sass:build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

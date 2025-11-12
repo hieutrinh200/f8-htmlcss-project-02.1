@@ -1,0 +1,131 @@
+@use '../1-settings/' as settings;
+@use '../2-tools/' as tools;
+
+.testimonials {
+  margin-block-end: 8.125rem;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__quote {
+    &-icon {
+      width: 2.25rem;
+      height: 1.8125rem;
+    }
+    margin-block-start: 1.69rem;
+    max-width: 26.1875rem;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #5d6564;
+  }
+
+  &__author {
+    margin-block-start: 2.06rem;
+    margin-inline-start: 0.81rem;
+    &-name {
+      position: relative;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #070707;
+      &::after {
+        content: '';
+        width: 0.5rem;
+        height: 0.125rem;
+        position: absolute;
+        top: 50%;
+        left: -0.81rem;
+        background-color: #070707;
+        transform: translateY(-50%);
+      }
+    }
+    &-job {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #767e7e;
+    }
+  }
+
+  &__media {
+    width: 58%;
+    min-height: 30rem;
+    position: relative;
+  }
+
+  &__avatar {
+    position: absolute;
+    border-radius: 50%;
+
+    &--large {
+      width: 14.6875rem;
+      height: 14.6875rem;
+      top: 6.69rem;
+      right: 10.69rem;
+      background-color: #ff8282;
+    }
+
+    &--small1 {
+      width: 4.875rem;
+      height: 4.875rem;
+      bottom: 9.06rem;
+      left: 0;
+      background-color: #ffc147;
+    }
+
+    &--small2 {
+      width: 5.75rem;
+      height: 5.75rem;
+      top: 0;
+      left: 9rem;
+      background-color: #1ebfc1;
+    }
+
+    &--small3 {
+      width: 6.875rem;
+      height: 6.875rem;
+      top: 1.1875rem;
+      right: 0;
+      background-color: #bf83ff;
+    }
+
+    &--small4 {
+      width: 4.875rem;
+      height: 4.875rem;
+      right: 2rem;
+      bottom: 1.8125rem;
+      background-color: #b1dfdc;
+    }
+
+    &--small5 {
+      width: 4.875rem;
+      height: 4.875rem;
+      bottom: 0;
+      left: 13.25rem;
+      background-color: #ff947a;
+    }
+  }
+
+  @include tools.respond-max(laptop) {
+    &__inner {
+      flex-direction: column;
+    }
+
+    &__media {
+      width: 90%;
+    }
+  }
+
+  @include tools.respond-max(mobile) {
+    &__media {
+      display: none;
+    }
+  }
+}

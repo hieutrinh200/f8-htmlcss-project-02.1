@@ -1,0 +1,16 @@
+@use '../1-settings' as settings;
+@use 'sass:map';
+
+@mixin respond-max($point) {
+  $bp: map.get(settings.$breakpoints, $point);
+  @if $bp {
+    @media (max-width: $bp) {
+      @content;
+    }
+  }
+}
+
+@mixin focus-ring($color: var(--color-accent)) {
+  outline: 2px solid $color;
+  outline-offset: 2px;
+}

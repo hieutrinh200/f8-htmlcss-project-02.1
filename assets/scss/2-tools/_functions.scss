@@ -1,0 +1,15 @@
+@use '../1-settings' as settings;
+
+@function spacing($key) {
+  $value: map.get(settings.$spacings, $key);
+  @if $value == null {
+    @error "Spacing key `#{$key}` not found in settings.$spacings.";
+  }
+  @return $value;
+}
+
+@function px-to-rem($px, $base: 16) {
+  $raw: $px / $base;
+  $rounded: round($raw * 1000) / 1000; // làm tròn 3 số thập phân
+  @return $rounded * 1rem;
+}
