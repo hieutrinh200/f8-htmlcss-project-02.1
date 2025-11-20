@@ -1,0 +1,32 @@
+$color-primary: #0d6efd !default;
+$color-bg: #ffffff !default;
+$color-text: #1a1a1a !default;
+$color-border: #e5e7eb !default;
+
+:root {
+  --color-accent: #{$color-primary};
+  --color-surface: #{$color-bg};
+  --color-on-surface: #{$color-text};
+  --color-border: #{$color-border};
+}
+
+$color-teal-500: #1ebfc1;
+$color-teal-400: #2ac9bf;
+$color-teal-100: #d0efed;
+$color-teal-75: #e0f7f6;
+$color-teal-50: #def6f5;
+
+$color-slate-700: #2f3a3b;
+$color-slate-600: #5d6564;
+$color-slate-500: #767e7e;
+$color-slate-400: #9da6a5;
+
+$color-gray-700: #2e2e2e;
+$color-gray-600: #494949;
+$color-gray-550: #535353;
+$color-gray-300: #b0b5b4;
+
+$color-black-900: #0d1111;
+$color-black-950: #070707;
+
+$color-white: #ffffff;

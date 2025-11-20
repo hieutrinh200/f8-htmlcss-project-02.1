@@ -1,0 +1,8 @@
+@use 'sass:math';
+@use '../1-settings' as settings;
+
+@function px-to-rem($px, $base: 16) {
+  $raw: math.div($px, $base);
+  $rounded: math.div(math.round($raw * 1000), 1000);
+  @return $rounded * 1rem;
+}

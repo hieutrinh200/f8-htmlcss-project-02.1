@@ -1,0 +1,89 @@
+@use 'sass:map';
+@use '../1-settings' as settings;
+@use '../2-tools' as tools;
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  background-color: settings.$color-white;
+
+  &__content {
+    inline-size: 100%;
+  }
+
+  &__list {
+    display: flex;
+    gap: tools.px-to-rem(39);
+    list-style: none;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__link {
+    display: block;
+    font-size: tools.px-to-rem(16);
+    color: settings.$color-slate-700;
+    text-decoration: none;
+
+    &--active {
+      font-weight: 600;
+    }
+
+    &:not(&--active):hover {
+      text-shadow: 0 0 1px settings.$color-slate-700;
+    }
+  }
+
+  &__actions {
+    display: none;
+    width: 90%;
+    margin-block-start: auto;
+  }
+
+  &__action {
+    font-size: tools.px-to-rem(16);
+    color: settings.$color-gray-600;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+      text-shadow: 0 0 1px settings.$color-slate-700;
+    }
+  }
+
+  &__btn {
+    padding-block: tools.px-to-rem(12);
+    padding-inline: tools.px-to-rem(24);
+    border-radius: tools.px-to-rem(6);
+    font-size: tools.px-to-rem(16);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  @media (max-width: 960px) {
+    position: fixed;
+    inset-block: 0;
+    inset-inline-start: auto;
+    inset-inline-end: 0;
+    z-index: map.get(settings.$z-index, modal);
+    display: flex;
+    flex-direction: column;
+    inline-size: tools.px-to-rem(320);
+    max-inline-size: 80%;
+    padding-block: tools.px-to-rem(16);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+
+    &__list {
+      flex-direction: column;
+    }
+
+    &__actions {
+      display: flex;
+      flex-direction: column;
+      gap: tools.px-to-rem(16);
+    }
+  }
+}

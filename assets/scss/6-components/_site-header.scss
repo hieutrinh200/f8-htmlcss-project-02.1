@@ -1,0 +1,116 @@
+@use 'sass:map';
+@use '../1-settings/' as settings;
+@use '../2-tools/' as tools;
+
+.site-header {
+  padding-block-start: tools.px-to-rem(52);
+  padding-block-end: tools.px-to-rem(16);
+  background-color: settings.$color-white;
+
+  &--sticky {
+    position: sticky;
+    inset-block-start: tools.px-to-rem(-36);
+    z-index: map.get(settings.$z-index, sticky);
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: tools.px-to-rem(24);
+    inline-size: tools.px-to-rem(250);
+  }
+
+  &__action {
+    font-size: tools.px-to-rem(16);
+    color: settings.$color-gray-600;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+      text-shadow: 0 0 1px settings.$color-slate-700;
+    }
+  }
+
+  &__btn {
+    padding-block: tools.px-to-rem(12);
+    padding-inline: tools.px-to-rem(24);
+    border-radius: tools.px-to-rem(6);
+    font-size: tools.px-to-rem(16);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  &__toggle {
+    display: none;
+    position: absolute;
+    inset-inline-end: 0;
+    margin-inline-end: tools.px-to-rem(16);
+    inline-size: tools.px-to-rem(32);
+    block-size: tools.px-to-rem(32);
+    color: settings.$color-teal-500;
+    cursor: pointer;
+
+    svg {
+      inline-size: 100%;
+      block-size: 100%;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: map.get(settings.$z-index, overlay);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .site-header__checkbox:checked ~ .site-nav {
+    transform: translateX(0);
+  }
+
+  .site-header__checkbox:checked ~ .site-header__overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @media (max-width: 960px) {
+    &__actions {
+      display: none;
+    }
+
+    &__toggle {
+      display: block;
+    }
+  }
+
+  @include tools.respond-max(tablet) {
+    padding-block: tools.px-to-rem(16);
+
+    &__inner {
+      justify-content: space-between;
+    }
+
+    &--sticky {
+      inset-block-start: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__overlay {
+      transition: none;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@use '../1-settings' as settings;
+@use '../7-utilities' as utilities;
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease, transform 0.1s ease;
+
+  &:hover {
+    background-color: color-mix(in srgb, settings.$color-teal-500 88%, white);
+  }
+
+  &:active {
+    background-color: color-mix(in srgb, settings.$color-teal-500 88%, white);
+    transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    @extend .u-focus-ring;
+  }
+
+  &--primary {
+    color: settings.$color-white;
+    background-color: settings.$color-teal-500;
+  }
+
+  &--ghost {
+    color: settings.$color-teal-500;
+    background-color: transparent;
+    transition: color 0.2s ease;
+    border: 1px solid settings.$color-teal-500;
+
+    &:hover {
+      color: settings.$color-white;
+      background-color: color-mix(in srgb, settings.$color-teal-500 88%, white);
+    }
+  }
+}

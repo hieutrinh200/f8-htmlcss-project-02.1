@@ -1,0 +1,16 @@
+@use '../1-settings' as settings;
+@use '../2-tools' as tools;
+
+html {
+  font-size: clamp(0.875rem, 0.9rem + 0.4vw, 1.125rem);
+  line-height: settings.$base-line-height;
+}
+
+body {
+  font: 400 1rem/1.5 settings.$font-stack-sans;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}

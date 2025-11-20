@@ -1,0 +1,33 @@
+@use '../1-settings/' as settings;
+@use '../2-tools/' as tools;
+
+.stats {
+  margin-block-start: tools.px-to-rem(265);
+
+  &__list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    @include tools.respond-max(tablet) {
+      flex-wrap: wrap;
+      gap: tools.px-to-rem(80);
+    }
+  }
+}
+
+.stat {
+  &__number {
+    text-align: center;
+    font-size: tools.px-to-rem(62);
+    font-weight: 700;
+    color: settings.$color-black-900;
+  }
+
+  &__description {
+    margin-block-start: tools.px-to-rem(11);
+    text-align: center;
+    font-size: tools.px-to-rem(18);
+    color: settings.$color-slate-500;
+  }
+}

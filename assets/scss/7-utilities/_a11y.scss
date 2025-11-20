@@ -1,0 +1,84 @@
+/* ===========================================
+   A11Y UTILITIES – HOWNDI / Inclusive Design
+   =========================================== */
+
+/* 1. Screen-reader only */
+.u-sr-only {
+  position: absolute !important;
+  inline-size: 1px !important;
+  block-size: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* 2. Focus ring */
+.u-focus-ring {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+:focus-visible {
+  @extend .u-focus-ring;
+}
+
+/* 3. Skip link */
+.u-skip-link {
+  @extend .u-sr-only;
+
+  &:focus-visible {
+    position: static !important;
+    inline-size: auto !important;
+    block-size: auto !important;
+    background: #000 !important;
+    color: #fff !important;
+    padding: 0.5rem 1rem !important;
+    z-index: 9999 !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+  }
+}
+
+/* 4. Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .u-reduce-motion {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 5. Visually hidden - toggled */
+.u-visually-hidden {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.u-visually-show {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  position: static !important;
+}
+
+/* 6. ARIA helpers */
+[aria-disabled='true'] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+[aria-expanded='true'] .u-rotate {
+  transform: rotate(180deg);
+}
+
+[aria-invalid='true'] {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #dc2626 40%, transparent) !important;
+}

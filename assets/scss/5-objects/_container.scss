@@ -1,0 +1,31 @@
+@use '../2-tools' as *;
+
+.o-container {
+  inline-size: 100%;
+  max-inline-size: 80rem; // 1280px
+  margin-inline: auto;
+  padding-inline: 4rem;
+
+  // Laptop (<= 1023.98px)
+  @include respond-max(laptop) {
+    max-inline-size: 60rem; // 960px
+    padding-inline: 2rem;
+  }
+
+  // Tablet (<= 767.98px)
+  @include respond-max(tablet) {
+    max-inline-size: 45rem; // 720px
+    padding-inline: 1.6rem;
+  }
+
+  // Mobile (<= 639.98px)
+  @include respond-max(mobile) {
+    max-inline-size: 100%;
+    padding-inline: 1.2rem;
+  }
+
+  // Wide (>= 1536px)
+  @media (min-width: 96rem) {
+    max-inline-size: 90rem; // 1440px
+  }
+}

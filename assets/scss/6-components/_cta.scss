@@ -1,0 +1,41 @@
+@use '../1-settings/' as settings;
+@use '../2-tools/' as tools;
+
+.cta {
+  padding-block-start: tools.px-to-rem(76);
+  padding-block-end: tools.px-to-rem(88);
+  margin-block-start: tools.px-to-rem(130);
+  scroll-margin-top: tools.px-to-rem(116);
+  background-color: settings.$color-teal-50;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: tools.px-to-rem(42);
+    font-weight: 700;
+    color: settings.$color-black-950;
+  }
+
+  &__subtitle {
+    margin-block-start: tools.px-to-rem(18);
+    font-size: tools.px-to-rem(18);
+    color: settings.$color-slate-500;
+  }
+
+  &__button {
+    padding-block: tools.px-to-rem(20);
+    padding-inline: tools.px-to-rem(41);
+    border-radius: tools.px-to-rem(14);
+  }
+
+  @include tools.respond-max(tablet) {
+    &__inner {
+      flex-direction: column;
+      gap: tools.px-to-rem(48);
+    }
+  }
+}

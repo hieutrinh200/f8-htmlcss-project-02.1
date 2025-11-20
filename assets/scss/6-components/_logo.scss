@@ -1,0 +1,19 @@
+@use '../2-tools/' as tools;
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: tools.px-to-rem(6);
+
+  color: #192122;
+
+  &-icon {
+    inline-size: tools.px-to-rem(36);
+    block-size: tools.px-to-rem(36);
+  }
+
+  &-text {
+    display: flex;
+    align-items: baseline;
+  }
+}

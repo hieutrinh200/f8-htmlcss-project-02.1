@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use '../1-settings' as settings;
+
+@mixin respond-max($point) {
+  $bp: map.get(settings.$breakpoints, $point);
+  @if $bp {
+    @media (max-width: $bp) {
+      @content;
+    }
+  }
+}

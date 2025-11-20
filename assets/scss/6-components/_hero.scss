@@ -1,0 +1,119 @@
+@use 'sass:map';
+@use '../1-settings/' as settings;
+@use '../2-tools/' as tools;
+
+.hero {
+  padding-block-start: tools.px-to-rem(34);
+  padding-block-end: tools.px-to-rem(79);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__tagline {
+    font-size: tools.px-to-rem(14);
+    color: settings.$color-slate-500;
+  }
+
+  &__title {
+    margin-block-start: tools.px-to-rem(18);
+    font-size: tools.px-to-rem(62);
+    font-weight: 700;
+    line-height: 1.161;
+    color: settings.$color-black-900;
+  }
+
+  &__description {
+    max-inline-size: tools.px-to-rem(374);
+    margin-block-start: tools.px-to-rem(46);
+    font-size: tools.px-to-rem(18);
+    line-height: 1.778;
+    color: settings.$color-slate-400;
+  }
+
+  &__actions {
+    display: flex;
+    gap: tools.px-to-rem(50);
+    margin-block-start: tools.px-to-rem(52);
+  }
+
+  &__cta-button {
+    padding-block: tools.px-to-rem(20);
+    padding-inline: tools.px-to-rem(41);
+    border-radius: tools.px-to-rem(14);
+  }
+
+  &__play-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    inline-size: tools.px-to-rem(62);
+    block-size: tools.px-to-rem(62);
+
+    border-radius: 50%;
+    background: settings.$color-white;
+    box-shadow: 0 22px 50px 0 rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.1s ease, transform 0.1s ease;
+
+    &:hover {
+      box-shadow: 0 22px 50px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  &__media {
+    position: relative;
+  }
+
+  &__thumbnail {
+    inline-size: tools.px-to-rem(576);
+    block-size: tools.px-to-rem(631);
+    object-fit: cover;
+    background-color: settings.$color-teal-75;
+  }
+
+  @include tools.respond-max(laptop) {
+    padding-block-end: 0;
+
+    &__thumbnail {
+      display: none;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
+
+.info-card {
+  position: absolute;
+
+  &--courses {
+    inset-block-start: tools.px-to-rem(69);
+    inset-inline-start: tools.px-to-rem(-120);
+  }
+
+  &--schedules {
+    inset-block-end: tools.px-to-rem(-34);
+    inset-inline-start: tools.px-to-rem(-145);
+  }
+
+  &--students {
+    inset-inline-end: tools.px-to-rem(-35);
+    inset-block-end: tools.px-to-rem(-39);
+  }
+
+  @include tools.respond-max(desktop) {
+    display: none;
+  }
+}
